@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/test")
-public class TestController {
+@RequestMapping("/admin")
+public class AdminController {
 
     @GetMapping("/delete/{id}")
     @PreAuthorize("hasRole('admin')")
@@ -24,11 +24,5 @@ public class TestController {
     @PreAuthorize("hasRole('admin')")
     public String internal() {
         return "add work";
-    }
-
-    @GetMapping("/view")
-    @PreAuthorize("hasRole('user')")
-    public String view() {
-        return "view work";
     }
 }

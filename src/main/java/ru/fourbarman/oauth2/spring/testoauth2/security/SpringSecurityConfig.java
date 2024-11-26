@@ -22,7 +22,8 @@ public class SpringSecurityConfig {
 
 
         http.authorizeRequests()
-                .antMatchers("/test/login").permitAll()
+                .antMatchers("/user/*").hasRole("user")
+                .antMatchers("/admin/*").hasRole("admin")
                 .anyRequest().authenticated()
                 .and()
                 .oauth2ResourceServer()//добавляем конвертер ролей из Jwt в Authority
